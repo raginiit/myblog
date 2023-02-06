@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import { Container, ThemeProvider } from "@material-ui/core";
+import React from "react";
+import FeaturedPost from "./components/FeaturedPost";
+import Header from "./components/Header";
+import { createTheme } from "@material-ui/core/styles";
+import "./App.css";
+import { Grid } from "@material-ui/core";
+import { featuredPosts } from "./data/Data";
 
 function App() {
+  const darkTheme = createTheme({
+    palette: {
+      mode: "dark",
+    },
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={darkTheme}>
+      <Container>
+        <Header />
+        <FeaturedPost />
+        <br />
+        <Grid container spacing ={4}>
+          {featuredPosts.map((post) => (
+            <PostCard post={post} key={post.title} />
+
+          ))}
+        </Grid>
+        <Grid container spacing={5} className={classes.mainGrid}>
+        <Main/>
+        <Sidebar/>
+        </Grid>
+      </Container>
+    </ThemeProvider>
   );
 }
 
