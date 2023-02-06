@@ -27,14 +27,13 @@ const FeaturedPost = () => {
     <Card className={classes.cover}>
       <CardContent className={classes.textContainer}>
         <Typography className={classes.title}>
-          {" "}
+          
           Title of longer featured of blog post{" "}
         </Typography>
         <Typography variant="h5">
-          {" "}
+          
           Multiples lines of text that form the idea,informing new readers
-          quickly and efficiently about what's most intresting in this post's
-          contents.{" "}
+          quickly. 
         </Typography>
       </CardContent>
       <CardActions>
